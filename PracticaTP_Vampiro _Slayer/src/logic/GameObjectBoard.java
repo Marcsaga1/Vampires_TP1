@@ -28,7 +28,7 @@ public class GameObjectBoard {
 		
 	}	
 	
-	public SlayerList getSList() {
+	public SlayerList getSlist() {
 		
 		return Slist;
 	}

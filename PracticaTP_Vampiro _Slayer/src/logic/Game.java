@@ -28,6 +28,7 @@ public class Game {
 	SlayerList Slist;
 	VampireList Vlist;
 	Player User;
+	GameObjectBoard Lists;
 	
 	int Scont = Slist.getScont();
 	int Vcont = Vlist.getContador_Vamp();
@@ -101,6 +102,46 @@ public class Game {
 		}
 	
 		return puedeComprar;
+	}
+	
+	
+	public void attackSlayer(GameObjectBoard Lists){
+		
+		int i, j, vidaVamp = 0;
+		
+		while(i < Lists.getSlist().getScont()){
+			for(j = 0; j < Lists.getVlist().getContador_Vamp(); j++){
+				
+				if(Lists.getSlist().getSlayerOfArray(i).getPosSy == Lists.getVlist().getVampireOfArray(j).getposVy()){
+					
+					vidaVamp = Lists.getVlist().getVampireOfArray(j).getVida();
+					Lists.getVlist().getVampireOfArray(j).setVida(vidaVamp - 1);
+					
+				}
+			}
+			
+			i++;
+		}
+		
+	}
+	
+	public void attackVampire(GameObjectBoard Lists){
+		
+		int i, j, Svida = 0;
+		
+		while( i < Lists.getVlist().getContador_Vamp()){
+			for(j = 0; j < Lists.getSlist().getScont(); j++){
+				
+				if(Lists.getVlist().getVampireOfArray(i).getposVx()+1 == Lists.getSlist().getSlayerOfArray(j).getPosSx &&  Lists.getVlist().getVampireOfArray(i).getposVy() == Lists.getSlist().getSlayerOfArray(j).getPosSy){
+					
+					Svida = Lists.getSlist().getSlayerOfArray(j).getVida();
+					Lists.getSlist().getSlayerOfArray(j).setVida(Svida);
+					
+				}
+			}
+			
+			i++;
+		}
 	}
 	
 	public boolean PuedeAnyadirVampiro(Level level, Random Aleatorio) {

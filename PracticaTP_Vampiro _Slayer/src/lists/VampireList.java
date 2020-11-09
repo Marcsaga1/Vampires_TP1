@@ -67,10 +67,10 @@ public class VampireList {
 	
 	public void Vampire AnnadirVampireLista(VampireList Vlist, int x, int y, Game game) {
 	
-	Vlist.Varray[getContador_Vamp()] = new Vampire(Vampire.setPosVx(x), Vampire.setPosVy(y), game);
-	Vcont++;
-	this.setContador_Vamp(Vcont);
-	pos = getContador_Vamp() - 1;
+		Vlist.Varray[getContador_Vamp()] = new Vampire(Vampire.setPosVx(x), Vampire.setPosVy(y), game);
+		Vcont++;
+		this.setContador_Vamp(Vcont);
+		pos = getContador_Vamp() - 1;
 	
 	}
 	
