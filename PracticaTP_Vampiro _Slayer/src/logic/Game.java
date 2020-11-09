@@ -31,8 +31,8 @@ public class Game {
 	
 	int Scont = Slist.getScont();
 	int Vcont = Vlist.getContador_Vamp();
-	Slayer[] Sarray = Slist.getSarray();
-	Vampire[] Varray = Vlist.getVarray();
+	//Slayer[] Sarray = Slist.getSarray();
+	//Vampire[] Varray = Vlist.getVarray();
 	
 	public boolean HayGanador(int Vcont, Slayer[] Sarray, Vampire[] Varray ) {
 		

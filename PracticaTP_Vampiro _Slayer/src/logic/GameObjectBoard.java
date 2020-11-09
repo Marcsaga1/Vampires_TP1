@@ -18,8 +18,26 @@ public class GameObjectBoard {
 	public static int MAX_DIM_X= 10;
 	public static int MAX_DIM_Y= 10;
 	
-	SlayerList Slist;
-	VampireList Vlist;
+	private SlayerList Slist;
+	private VampireList Vlist;
+	
+	public GameObjectBoard(){
+		
+		this.Slist = new SlayerList();
+		this.Vlist = new VampireList();
+		
+	}	
+	
+	public SlayerList getSList() {
+		
+		return Slist;
+	}
+	
+	public VampireList getVlist() {
+		
+		return Vlist;
+	}
+	
 	Level level;
 	Game game;
 	Player Player;
@@ -27,17 +45,16 @@ public class GameObjectBoard {
 	Controller controller;
 	Random Aleatorio;
 	int Scont, money;
-	//double vampireFrequency;
+	
 	
 	double vampireFrequency = level.getvampireFrequency();
 	int Vcont = Vlist.getContador_Vamp();
-	Vampire[] Varray = Vlist.getVarray();			
-			
-	public void addSlayer(GameObjectBoard Board, GamePrinter Tab, SlayerList Slist, String[][] board, Slayer[] Sarray) {
+	//Vampire[] Varray = Vlist.getVarray();			
+
+	public void addSlayer(GameObjectBoard Board, GamePrinter Tab, SlayerList this.Slist, String[][] board, Game game) {
 		
 		board = Tab.getBoard();
 		money = Player.getMoney();
-		Sarray = Slist.getSarray();
 		Scont = Slist.getScont();
 		
 		int pos = 0;
@@ -54,10 +71,10 @@ public class GameObjectBoard {
 			int y = controller.getScanner().nextInt();
 			
 			if(board[x][y] == null) {
-			
-				this.ColocarSlayerTablero(x, y, Sarray, board, pos);
-				Slist.setSarray(Slist, x, y, game);
-				Scont = Scont++;
+				
+				pos = this.Slist.AnnadirSlayerLista(this.Slist,x,y,game);
+				this.ColocarSlayerTablero(x, y, this.Slist, board, pos);
+				Scont++;
 				Slist.setScont(Scont);
 				
 			}else if(board[x][y] == "S") {
@@ -74,30 +91,39 @@ public class GameObjectBoard {
 		}
 	
 	
-	public void EliminarSlayer_Lista(Slayer []Sarray, int Scont, int posSx, int posSy) {
+	public void EliminarSlayer_Lista(SlayerList this.Slist, int posSx, int posSy) {
 		
-		for(int i = 0; i < Sarray.length; i++) {
+		int pos = 0;
+		
+		for(int i = 0; i < Slist.Sarray.length; i++){
 			
-			if( Sarray[i].getPosSx() == posSx && Sarray[i].getPosSy() == posSy) {
+			if(this.Slist.getSlayerOfArray(i).getPosSy == posSy){
 				
-				int posS = i;
+				pos = i;
 				
-				for(int j = posS; j < Sarray.length; j++) {
+				if(!SlayerMuerto(SlayerList this.Slist, int pos)){
+			
+					System.out.println(" No se puede eliminar el Slayer, porque está vivo ")
+			
+				}else{
+			
+					for(int j = pos; j < Sarray.length; j++) {
 					
-					Sarray[j] = Sarray[j+1];
-					Scont--;
-					Slist.setScont(Scont);
-				}
+						Sarray[j] = Sarray[j+1];
+						Scont--;
+						Slist.setScont(Scont);
+						
+					}
+				}		
 			}
-			
-			
 		}
+	
 	}
 	
-	public void ColocarSlayerTablero(int x, int y, Slayer[] Sarray, String[][] board, int pos ) {
+	public void ColocarSlayerTablero(int x, int y, SlayerList this.Slist, String[][] board, int pos ) {
 			
-		Sarray[pos].setPosSx(x);
-		Sarray[pos].setPosSy(y);
+		Slist.getSlayerOfArray(pos).setPosSx(x);
+		Slist.getSlayerOfArray(pos).setPosSy(y);
 		board[x][y] = "S";
 
 	}
@@ -140,10 +166,10 @@ public class GameObjectBoard {
 		}
 	}
 	
-	public void AddVampire(GameObjectBoard Board, GamePrinter Tab, VampireList Vlist, String[][] board, Vampire[] Varray, Random Aleatorio, Level level) {
+	public void AddVampire(GameObjectBoard Board, GamePrinter Tab, VampireList this.Vlist, String[][] board, Random Aleatorio, Level level) {
 		
 		board = Tab.getBoard();
-		Varray = Vlist.getVarray();
+		//Varray = Vlist.getVarray();
 		int posVampX = 0;
 		int posVampY = 0;
 		int dimY = 0;
@@ -164,9 +190,11 @@ public class GameObjectBoard {
 			
 			if(Board.ColocarVampireTablero(posVampX, posVampY, board)) {
 				
-				Varray[i].setPosVx(posVampX);
-				Varray[i].setPosVy(posVampY);
-				i++;
+				Vampire AnnadirVampireLista(VampireList this.Vlist,posVampX, posVampY,game);
+				
+				/*Vlist.getVampireOfArray(i).setPosVx(posVampX);
+				Vlist.getVampireOfArray(i).setPosVy(posVampY);
+				i++;*/
 				
 				System.out.println(" Ha sido anyadido de manera correcta un Vampiro");
 				

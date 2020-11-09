@@ -37,9 +37,16 @@ public class Slayer {
 	}
 
 	public int getPosSy() {
-		// TODO Auto-generated method stub
 		return posY;
 	}
 	
-	
+	public void setVida(int vida){
+		
+		this.vida = vida;
 	}
+	
+	public int getVida()
+	{
+		return vida;
+	}		
+	

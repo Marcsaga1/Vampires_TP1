@@ -6,7 +6,7 @@ import logic.Level;
 
 public class SlayerList {
 	
-	private Slayer Sarray[];
+	private Slayer[] Sarray;
 	private int Scont;
 	public static final int MAX_SALYERS = 20;
 	
@@ -22,7 +22,7 @@ public class SlayerList {
 	SlayerList Slist = new SlayerList(this.Sarray, this.Scont);
 	
 	
-public Slayer[] setSarray(SlayerList Slist, int posX, int posY, Game game) {
+/*public Slayer[] setSarray(SlayerList Slist, int posX, int posY, Game game) {
 		
 		tamArrayS = level.getnumberOfVampires();
 		
@@ -34,13 +34,13 @@ public Slayer[] setSarray(SlayerList Slist, int posX, int posY, Game game) {
 		
 		return Slist.Sarray;
 		
-	}
+	}*/
 	
 
-public Slayer[] getSarray() {
+/*public Slayer[] getSarray() {
 	
 	return Sarray;
-}
+}*/
 
 public int getScont() {
 	
@@ -52,19 +52,36 @@ public void setScont(int Scont) {
 	this.Scont = Scont;
 }
 
-public static boolean SlayerVivo(SlayerList Slist, int pos) {
+public boolean SlayerMuerto(SlayerList Slist, int pos) {
 	
 	boolean Smuerto = false;
 	
-	if(Slist.Sarray[pos].Vida == 0) {
+	if(this.getSlayerOfArray(pos).getVida == 0) {
 		
 		Smuerto = true;
 	}
 	
 	return Smuerto;
 }
+	
+	public Slayer getSlayerOfArray(int i){
+		
+		return Sarray[i];
+	}
+	
+	
+public int Slayer AnnadirSlayerLista(SlayerList Slist, int x, int y, Game game) {
+	
+	int pos = 0;
+	
+	Slist.Sarray[getScont()] = new Slayer(Slayer.setPosSx(x), Slayer.setPosSy(y), game);
+	Scont++;
+	setScont(Scont);
+	pos = getScont() - 1;
+	
+	return pos;
+}
 
-	
-	
+
 
 }

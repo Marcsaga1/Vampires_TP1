@@ -10,17 +10,19 @@ public class Vampire {
 	private static int numVamp;
 	private boolean finish;
 	private Game game;
-	public static int Vida = 5;
+	private int vida;
+	public static int VidaInicial = 5;
 	public static final int DANYO = 1;
 	
 
-	public Vampire(int posVx, int posVy, int numVamp, boolean finish, Game game) {
+	public Vampire(int posVx, int posVy, int numVamp, boolean finish, Game game, int vida) {
 		
 		this.posVy = posVx;
 		this.posVy = posVy;
 		this.numVamp = numVamp;
 		this.finish = finish;
 		this.game = game;
+		this.vida = vida;
 		
 	}
 	
@@ -77,6 +79,16 @@ public class Vampire {
 
 	public void setLevel(Level level) {
 		this.level = level;
+	}
+	
+	public int getVida(){
+		
+		return vida;
+	}
+	
+	public void setVida(int vida){
+		
+		this.vida = vida;
 	}
 
 }
