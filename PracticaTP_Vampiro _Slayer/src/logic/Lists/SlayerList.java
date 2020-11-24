@@ -1,8 +1,8 @@
-package lists;
+package logic.Lists;
 
-import GameObjects.Slayer;
 import logic.Game;
 import logic.Level;
+import logic.GameObjects.Slayer;
 
 public class SlayerList {
 	

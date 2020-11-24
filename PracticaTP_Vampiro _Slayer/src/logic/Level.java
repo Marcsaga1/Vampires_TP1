@@ -15,34 +15,23 @@ public enum Level {
 		this.dim_x = dim_x;
 		this.dim_y = dim_y;
 	}
-	
-	public String getname() {
-		return name;
-	}
-	
-	public int getnumberOfVampires() {
-		
+	public int getNumberOfVampires() {
 		return numberOfVampires;
 	}
 	
-	public double getvampireFrequency() {
-		
+	public double getVampireFrequency() {
 		return vampireFrequency;
 	}
 	
-	public int getdim_x() {
-		
+	public int getDimX() {
 		return dim_x;
 	}
-	
-	public int getdim_y() {
-		
+
+	public int getDimY() {
 		return dim_y;
 	}
-
 	
-
-    public static Level parse(String inputString) {
+	public static Level parse(String inputString) {
         for (Level level : Level.values())
             if (level.name().equalsIgnoreCase(inputString)) 
             	return level;
@@ -55,5 +44,4 @@ public enum Level {
             allLevels += level.name() + separator;
         return allLevels.substring(0, allLevels.length() - separator.length());
     }
-
 }

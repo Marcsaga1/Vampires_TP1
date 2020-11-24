@@ -1,4 +1,4 @@
-package GameObjects;
+package logic.GameObjects;
 
 import logic.Game;
 

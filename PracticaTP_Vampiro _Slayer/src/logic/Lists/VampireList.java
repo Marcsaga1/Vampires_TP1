@@ -1,8 +1,8 @@
-package lists;
+package logic.Lists;
 
-import GameObjects.Vampire;
 import logic.Game;
 import logic.Level;
+import logic.GameObjects.Vampire;
 
 public class VampireList {
 	

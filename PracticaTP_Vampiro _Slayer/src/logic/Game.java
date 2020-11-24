@@ -2,12 +2,12 @@ package logic;
 
 import java.util.Random;
 
-import GameObjects.Player;
-import GameObjects.Slayer;
-import GameObjects.Vampire;
-import lists.SlayerList;
-import lists.VampireList;
 import logic.Level;
+import logic.GameObjects.Player;
+import logic.GameObjects.Slayer;
+import logic.GameObjects.Vampire;
+import logic.Lists.SlayerList;
+import logic.Lists.VampireList;
 import logic.GameObjectBoard;
 
 
